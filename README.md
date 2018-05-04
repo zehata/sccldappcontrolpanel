@@ -1,5 +1,7 @@
 ### SCCL D'App Control Panel
 
+Dependencies: -vanilla.js
+
 The control panel uses a card layout, and a card can be added or edited at will.
 
 To add a card and fill it up with contents you want,
