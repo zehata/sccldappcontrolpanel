@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css.css">
+</head>
+<body>
+	<div id="flexwrapper">
+		<div id="flex">
+		<div id="title">Control Panel</div>
+			
+		</div>
+	</div>
+	<script>
+		var viewportwidth = "";
+		function updatecontentwidth(){
+			viewportwidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+			if(viewportwidth < 400){
+				var boxes = document.getElementsByClassName('boxes');
+				for(var i = 0; i < boxes.length; i++){
+					boxes[i].style.marginLeft = 0;
+				}
+			} else {
+				var boxes = document.getElementsByClassName('boxes');
+				for(var i = 0; i < boxes.length; i++){
+					boxes[i].style.marginLeft = "25px";
+				}
+			}
+		}
+		window.addEventListener("resize", function(event) {updatecontentwidth();});
+		var noofcards = -1;
+		function fillcontents(whichcard,cardtitle,contents){
+			while(whichcard > noofcards){
+				noofcards++;
+				var newcard = document.createElement('div');
+				newcard.className="boxes";
+				newcard.id="boxes"+noofcards;
+				document.getElementById('flex').appendChild(newcard);
+			}
+			document.getElementById('boxes'+whichcard).innerHTML = `<div class="boxestitle">`+cardtitle+`</div>
+				<div class="boxescontentwrapper" id="boxescontentwrapper`+whichcard+`"></div>`;
+
+			for(var j = 0; j < contents.length; j++){
+				var newcontent = document.createElement('div');
+				newcontent.className = "boxescontent";
+				newcontent.innerHTML = contents[j];
+				document.getElementById('boxescontentwrapper'+whichcard).appendChild(newcontent);
+			}
+		}
+	</script>
+</body>
+</html>
