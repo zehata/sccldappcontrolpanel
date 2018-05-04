@@ -1,6 +1,7 @@
 ### SCCL D'App Control Panel
 
 Dependencies: -vanilla.js
+To run: Use a mouse
 
 The control panel uses a card layout, and a card can be added or edited at will.
 
